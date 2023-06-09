@@ -3,6 +3,13 @@ import { Box } from '@mui/material'
 import { DataGrid, GridColDef, ptBR } from '@mui/x-data-grid'
 import  { useEffect, useState } from 'react'
 
+interface PersonInfo {
+  id: number
+  name: string
+  fav_color: string
+  fav_movie: string
+}
+
 const columns: GridColDef[] = [
   {
     field: 'name',
@@ -28,7 +35,7 @@ const columns: GridColDef[] = [
 ]
 
 export function TablePage() {
-  const [dataTable, setDataTable] = useState([])
+  const [dataTable, setDataTable] = useState<PersonInfo[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
   const getData = async () => {
@@ -49,6 +56,8 @@ export function TablePage() {
   useEffect(() => {
     getData()
   }, [])
+
+  console.log(dataTable)
 
   return (
         <Box display="flex" justifyContent="center" p={4} width={800}>

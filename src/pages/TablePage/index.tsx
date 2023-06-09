@@ -28,23 +28,37 @@ const columns: GridColDef[] = [
 ]
 
 export function TablePage() {
-  const [info, setInfo] = useState([])
+  const [dataTable, setDataTable] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const getData = async () => {
-    const response = await fetch('http://localhost:6060/info')
-    const data = await response.json()
-    setInfo(data)
+    try{
+      setIsLoading(true)
+      const response = await fetch('http://localhost:6060/info')
+      const data = await response.json()
+      setDataTable(data)
+    }
+    catch(error){
+      console.log(error)
+    }
+    finally{
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
     getData()
   }, [])
-  
-  console.log(info)
 
   return (
         <Box display="flex" justifyContent="center" p={4} width={800}>
-          <DataGrid sx={{height: 300}} localeText={ptBR.components.MuiDataGrid.defaultProps.localeText} rows={info} columns={columns} />
-        </Box>
+          <DataGrid 
+            sx={{height: 300}} 
+            localeText={ptBR.components.MuiDataGrid.defaultProps.localeText} 
+            rows={dataTable} 
+            columns={columns}
+            loading={isLoading} 
+          />
+      </Box>
   )
 }

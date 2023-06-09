@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:db": "json-server --watch db.json --port 6060",
+    "dev:db": "json-server -d 1250 --watch db.json --port 6060",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.2",
     "@mui/x-data-grid": "^6.6.0",
+    "@tanstack/react-query-devtools": "^4.29.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",

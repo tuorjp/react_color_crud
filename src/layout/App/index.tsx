@@ -1,19 +1,33 @@
-import { Box, Typography } from "@mui/material";
-import { Outlet } from "react-router";
-
+/* eslint-disable prettier/prettier */
+import { Box, Button, Typography } from '@mui/material'
+import { Outlet, useNavigate } from 'react-router'
 
 export function DefaultLayout() {
+  const navigate = useNavigate()
   return (
-    <Box sx={{ backgroundColor: "#0d1320", height: '100vh', color: '#ccc' }}>
+    <Box sx={{ backgroundColor: '#0d1320', height: '100vh', color: '#ccc' }}>
       <Box
-        display='flex'
-        justifyContent='space-evenly'
-        alignItems='center'
-        sx={{ height: '9rem', width: '100%', mb: 5, borderBottom: '1px solid #cdcdcd'}}
+        display="flex"
+        justifyContent="space-evenly"
+        alignItems="center"
+        sx={{
+          height: '9rem',
+          width: '100%',
+          mb: 5,
+          borderBottom: '1px solid #cdcdcd',
+        }}
       >
-        <Typography variant="h2">Header</Typography>
+        <Box>
+          <Typography variant="h2">Header</Typography>
+        </Box>
+        <Box>
+          <Button onClick={() => navigate('/')}>Home</Button>
+        </Box>
+        <Box>
+          <Button onClick={() => navigate('/table')}>Tabela</Button>
+        </Box>
       </Box>
-      <Box>
+      <Box sx={{height: '100', mb:0}} display='flex' flexDirection='row' justifyContent='center'>
         <Outlet />
       </Box>
     </Box>

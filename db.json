@@ -1,0 +1,22 @@
+{
+    "info": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "fav_color": "green",
+            "fav_movie": "Lord of The Rings"
+        },
+        {
+            "id": 2,
+            "name": "Debora Ryan",
+            "fav_color": "pink",
+            "fav_movie": "Shutter Island"
+        },
+        {
+            "id": 3,
+            "name": "Louise Robbinson",
+            "fav_color": "yellow",
+            "fav_movie": "Interstellar"
+        }
+    ]
+}

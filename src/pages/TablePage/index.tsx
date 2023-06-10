@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { Box } from '@mui/material'
 import { DataGrid, GridColDef, ptBR } from '@mui/x-data-grid'
-import  { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
-interface PersonInfo {
-  id: number
-  name: string
-  fav_color: string
-  fav_movie: string
-}
+// interface PersonInfo {
+//   id: number
+//   name: string
+//   fav_color: string
+//   fav_movie: string
+// }
 
 const columns: GridColDef[] = [
   {
@@ -35,38 +35,48 @@ const columns: GridColDef[] = [
 ]
 
 export function TablePage() {
-  const [dataTable, setDataTable] = useState<PersonInfo[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  // const [dataTable, setDataTable] = useState<PersonInfo[]>([])
+  // const [isLoading, setIsLoading] = useState(false)
 
-  const getData = async () => {
-    try{
-      setIsLoading(true)
-      const response = await fetch('http://localhost:6060/info')
-      const data = await response.json()
-      setDataTable(data)
-    }
-    catch(error){
+  const { isLoading, data } = useQuery({
+    queryKey: ['peopleInfo'],
+    queryFn: getPeopleInfo,
+    staleTime: 60*1000 // 1 min staleTime
+  })
+
+  async function getPeopleInfo() {
+    try {
+      const res = await fetch('http://localhost:6060/info')
+      const peopleInfo = res.json()
+      return peopleInfo
+    } catch (error) {
       console.log(error)
-    }
-    finally{
-      setIsLoading(false)
     }
   }
 
-  useEffect(() => {
-    getData()
-  }, [])
+  // const getData = async () => {
+  //   try{
+  //     const response = await fetch('http://localhost:6060/info')
+  //     const data = await response.json()
+  //     setDataTable(data)
+  //   }
+  //   catch(error){
+  //     console.log(error)
+  //   }
+  // }
 
-  console.log(dataTable)
+  // useEffect(() => {
+  //   getData()
+  // }, [])
 
   return (
         <Box display="flex" justifyContent="center" p={4} width={800}>
           <DataGrid 
             sx={{height: 300}} 
             localeText={ptBR.components.MuiDataGrid.defaultProps.localeText} 
-            rows={dataTable} 
+            rows={data || []} 
             columns={columns}
-            loading={isLoading} 
+            loading={isLoading}
           />
       </Box>
   )

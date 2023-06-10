@@ -24,7 +24,7 @@ export function DefaultLayout() {
           <Button onClick={() => navigate('/')}>Home</Button>
         </Box>
         <Box>
-          <Button onClick={() => navigate('/table')}>Tabela</Button>
+          <Button onClick={() => navigate('/table')}>Table</Button>
         </Box>
       </Box>
       <Box sx={{height: '100', mb:0}} display='flex' flexDirection='row' justifyContent='center'>

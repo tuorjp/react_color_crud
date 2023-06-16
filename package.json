@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:db": "json-server -d 1250 --watch db.json --port 6060",
+    "dev:server": "json-server -d 1250 --watch db.json --port 6060",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -14,19 +14,24 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.1",
+    "@hookform/resolvers": "^3.1.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.2",
     "@mui/x-data-grid": "^6.6.0",
     "@tanstack/react-query": "^4.29.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
     "react-router": "^6.11.2",
-    "react-router-dom": "^6.11.2"
+    "react-router-dom": "^6.11.2",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
+    "@tanstack/react-query-devtools": "^4.29.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/yup": "^0.32.0",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
@@ -35,7 +40,6 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "json-server": "^0.17.3",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2",
-    "@tanstack/react-query-devtools": "^4.29.12"
+    "vite": "^4.3.2"
   }
 }

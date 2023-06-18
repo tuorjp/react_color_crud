@@ -4,27 +4,20 @@ import { Box, Button, TextField } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-const schema = yup.object({
+const newPeopleFormSchema = yup.object({
   test: yup.string().required()
 })
 
-interface DefaultValues {
-  test: string
-}
-
-const defaultValues: DefaultValues = {
-  test: ''
-}
+type NewPeopleFormInputs = yup.InferType<typeof newPeopleFormSchema>
 
 export function Home() {
-  const {control, handleSubmit } = useForm(
+  const {control, handleSubmit } = useForm<NewPeopleFormInputs>(
       {
-        resolver: yupResolver(schema),
-        defaultValues
+        resolver: yupResolver(newPeopleFormSchema),
       }
     )
 
-  function onSubmit(data: DefaultValues) {
+  function onSubmit(data: NewPeopleFormInputs) {
     console.log(data)
   }
 

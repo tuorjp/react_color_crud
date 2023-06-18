@@ -1,60 +1,58 @@
-import { createTheme } from "@mui/material/styles";
+/* eslint-disable prettier/prettier */
+import { createTheme } from '@mui/material/styles'
 
 export default function useCustomMuiTheme() {
   const theme = createTheme({
-    palette:{
-        primary: {
-          main: '#fff',
-        },
-        secondary: {
-          main: '#000',
-        },
-        text: {
-          primary: '#fff',
-          secondary: '#fff',
-        },
-        info: {
-          main: '#fff',
-        },
-        common: {
-          white: '#fff',
-        },
+    palette: {
+      primary: {
+        main: '#fff',
+      },
+      secondary: {
+        main: '#000',
+      },
+      text: {
+        primary: '#fff',
+        secondary: '#fff',
+      },
+      info: {
+        main: '#fff',
+      },
     },
     components: {
       MuiButton: {
         styleOverrides: {
           contained: {
-            backgroundColor: "#003577",
-            color: "#ffffff",
+            backgroundColor: '#003577',
+            color: '#ffffff',
           },
           outlined: {
-            color: "#003577",
+            color: '#003577',
           },
         },
       },
       MuiTooltip: {
         styleOverrides: {
           tooltip: {
-            backgroundColor: "#000",
+            backgroundColor: '#000',
           },
         },
       },
       MuiTextField: {
         styleOverrides: {
           root: {
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "#cdcdcd",
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: '#cdcdcd',
               },
             },
-            "& .MuiInputLabel-root": {
-              color: "#cdcdcd",
+            '& .MuiInputLabel-root': {
+              color: '#cdcdcd',
             },
-            "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#ccc",
+            '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#ccc',
             },
-            "& .MuiInputLabel-root.Mui-disabled": {
-              color: "#cdcdcd",
+            '& .MuiInputLabel-root.Mui-disabled': {
+              color: '#cdcdcd',
             },
           },
         },
@@ -62,28 +60,28 @@ export default function useCustomMuiTheme() {
       MuiSelect: {
         styleOverrides: {
           outlined: {
-            borderColor: "#fff",
-            "&.Mui-disabled": {
-              borderColor: "#fff",
+            borderColor: '#fff',
+            '&.Mui-disabled': {
+              borderColor: '#fff',
             },
           },
           icon: {
-            color: "#fff",
+            color: '#fff',
           },
           select: {
-            color: "#fff",
+            color: '#fff',
           },
           iconFilled: {
-            color: "#fff",
+            color: '#fff',
           },
         },
       },
       MuiList: {
         styleOverrides: {
           root: {
-            background: "#222338",
-            "& .MuiListItem-root": {
-              color: "#fff",
+            background: '#222338',
+            '& .MuiListItem-root': {
+              color: '#fff',
             },
           },
         },
@@ -91,24 +89,24 @@ export default function useCustomMuiTheme() {
       MuiAutocomplete: {
         styleOverrides: {
           paper: {
-            background: "#222338",
+            background: '#222338',
           },
           root: {
-            "& .MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot .MuiInputBase-root-MuiOutlinedInput-root":
-              { borderColor: "#ccc" },
-            "& .MuiAutocomplete-inputRoot ": {
-              borderColor: "#fff",
-              outline: "#fff",
+            '& .MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot .MuiInputBase-root-MuiOutlinedInput-root':
+              { borderColor: '#ccc' },
+            '& .MuiAutocomplete-inputRoot ': {
+              borderColor: '#fff',
+              outline: '#fff',
             },
           },
           endAdornment: {
-            "& svg": {
-              color: "#fff",
+            '& svg': {
+              color: '#fff',
             },
           },
           inputRoot: {
-            "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#ccc",
+            '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#ccc',
             },
           },
         },
@@ -116,8 +114,8 @@ export default function useCustomMuiTheme() {
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
-            "& fieldset": {
-              borderColor: "#fff",
+            '& fieldset': {
+              borderColor: '#fff',
             },
           },
         },
@@ -125,14 +123,14 @@ export default function useCustomMuiTheme() {
       MuiInputBase: {
         styleOverrides: {
           input: {
-            "&.Mui-disabled": {
-              WebkitTextFillColor: "#ccc",
+            '&.Mui-disabled': {
+              WebkitTextFillColor: '#ccc',
             },
           },
         },
       },
     },
-  });
+  })
 
   return theme
 }

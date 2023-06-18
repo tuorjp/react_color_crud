@@ -2,7 +2,7 @@
 
 export function usePeopleInfo() {
   
-    async function getPeopleInfo() {
+  async function getPeopleInfo() {
     try {
       const res = await fetch('http://localhost:6060/info')
       const peopleInfo = res.json()

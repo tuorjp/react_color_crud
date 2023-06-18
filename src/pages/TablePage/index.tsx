@@ -73,13 +73,21 @@ export function TablePage() {
   // }, [])
 
   return (
-        <Box display="flex" justifyContent="center" p={4} width={800}>
+        <Box display="flex" justifyContent="center" p={4} width={1200}>
           <DataGrid 
             sx={{height: 300}} 
             localeText={ptBR.components.MuiDataGrid.defaultProps.localeText} 
             rows={data || []} 
             columns={columns}
             loading={isLoading}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 5,
+                },
+              },
+            }}
+            pageSizeOptions={[5]}
           />
       </Box>
   )
